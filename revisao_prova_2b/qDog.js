@@ -1,4 +1,4 @@
-const url_animals=`https://api.thecatapi.com/v1/images/search?limit=10`;
+const url_animals=`https://api.thedogapi.com/v1/images/search?limit=10`;
 fetch(url_animals)
     .then(response => response.json())
     .then(imagens => {
