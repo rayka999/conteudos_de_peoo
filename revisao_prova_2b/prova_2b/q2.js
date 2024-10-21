@@ -1,8 +1,8 @@
 let meses=[0, "Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","outubro","novembro","dezembro"]
 function feriados() {
     let ano=document.getElementById("ano").value;
-    const url=`https://brasilapi.com.br/api/feriados/v1/${ano}.`
-    fetch(url)
+    const url_ano=`https://brasilapi.com.br/api/feriados/v1/${ano}.`
+    fetch(url_ano)
         .then(response => response.json())
         .then(dados =>{
             let num_feriados=0
