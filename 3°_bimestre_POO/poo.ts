@@ -3,7 +3,7 @@ A Programação Orientada a Objetos (POO) é um paradigma de programação que o
  "classes". Esses objetos representam entidades com características e 
  comportamentos, tornando o código mais organizado, reutilizável e intuitivo. 
 **Classe**: Um modelo para criar objetos. Define atributos e métodos que um objeto criado a partir dela possuirá.
-- **Objeto**: Uma instância da classe, que representa um "objeto real" no código, com atributos e comportamentos específicos.
+- **Objeto**: Uma instância (concretização) da classe, que representa um "objeto real" no código, com atributos e comportamentos específicos.
 ## Abstração
 
 Habilidade de modelar características do mundo real para o mundo
