@@ -4,6 +4,7 @@ npm install -g typescript
 npx tsc --version
 cd nome_da_pasta
 npx tsc nome_arquivo.ts
+node .\nome_do_arquivo.js roda o código
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
@@ -73,3 +74,17 @@ var Cachorro = /** @class */ (function (_super) {
 }(Animal));
 var dog = new Cachorro("Bolt");
 dog.emitirSom(); // Saída: Latido
+//exemplo classe
+var circulo = /** @class */ (function () {
+    function circulo(raio, x, y) {
+        this.raio = raio;
+        this.x = x;
+        this.y = y; //this faz a referencia ao atributo
+    }
+    circulo.prototype.exibir = function () {
+        return "Raio: ".concat(this.raio, ", X: ").concat(this.x, ", Y: ").concat(this.y);
+    };
+    return circulo;
+}());
+var circulo_1 = new circulo(2, 0, 0); //objeto
+console.log(circulo_1.exibir());

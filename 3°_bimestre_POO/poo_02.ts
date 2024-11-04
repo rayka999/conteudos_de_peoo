@@ -73,3 +73,23 @@ class Cachorro extends Animal {
 
 const dog = new Cachorro("Bolt");
 dog.emitirSom(); // Saída: Latido
+
+//exemplo classe
+
+class circulo { //classe
+    raio: number; //atributo
+    x: number; //atributo
+    y: number; //atributo
+
+    constructor (raio: number, x: number, y: number) {
+        this.raio=raio;
+        this.x=x;
+        this.y=y; //this faz a referencia ao atributo
+    }
+    exibir() :string { //metodo e tipo de retorno
+        return `Raio: ${this.raio}, X: ${this.x}, Y: ${this.y}`
+    }
+}
+
+let circulo_1= new circulo(2,0,0) //objeto
+console.log(circulo_1.exibir())

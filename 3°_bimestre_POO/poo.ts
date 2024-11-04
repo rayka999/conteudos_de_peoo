@@ -19,8 +19,8 @@ Habilidade de modelar características do mundo real para o mundo
 
 //Exemplo de classe em TypeScript
 
-class Pessoa {
-    nome: string;
+class Pessoa { //classe
+    nome: string;//atributo
     idade: number;
 
     constructor(nome: string, idade: number) {
@@ -28,7 +28,7 @@ class Pessoa {
         this.idade = idade;
     }
 
-    saudacao(): string {
+    saudacao(): string { //metodo e tipo de retorno
         return `Olá, meu nome é ${this.nome} e tenho ${this.idade} anos.`;
     }
 }
