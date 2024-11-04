@@ -4,6 +4,7 @@ npm install -g typescript
 npx tsc --version
 cd nome_da_pasta
 npx tsc nome_arquivo.ts
+node .\nome_do_arquivo.js roda o código
 */
 
 /* Os modificadores de acesso são essenciais para controlar a visibilidade dos atributos e métodos.
