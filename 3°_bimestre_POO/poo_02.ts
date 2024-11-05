@@ -124,5 +124,5 @@ console.log(circulo_1.exibir())*/
 let circulo_02=new circulo( 3,5,2)
 //circulo_02.raio=10 n permitido, pois os atributos são privados
 circulo_02.setRaio(-3)
-
+console.log (circulo_02.getRaio())
 console.log(circulo_02.exibir())
