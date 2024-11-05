@@ -81,10 +81,40 @@ var circulo = /** @class */ (function () {
         this.x = x;
         this.y = y; //this faz a referencia ao atributo
     }
+    circulo.prototype.getRaio = function () {
+        return this.raio;
+    };
+    circulo.prototype.setRaio = function (r) {
+        if (r > 15) {
+            console.log("limite ultrapassado");
+        }
+        else if (r < 0) {
+            console.log("Você já estudou geometria???");
+        }
+        else {
+            this.raio = r;
+        }
+    };
     circulo.prototype.exibir = function () {
         return "Raio: ".concat(this.raio, ", X: ").concat(this.x, ", Y: ").concat(this.y);
     };
+    circulo.prototype.mover = function (x, y) {
+        this.x += x;
+        this.y += y; //this.y = this.y + y
+        //void quer dizer que não retorna nenhum tipo específico
+    };
+    circulo.prototype.aumentar = function (r) {
+        this.raio += r;
+    };
     return circulo;
 }());
-var circulo_1 = new circulo(2, 0, 0); //objeto
-console.log(circulo_1.exibir());
+/*let circulo_1= new circulo(2,0,0) //objeto
+console.log(circulo_1.exibir())
+circulo_1.aumentar(5)
+console.log(circulo_1.exibir())
+circulo_1.mover(2,4)
+console.log(circulo_1.exibir())*/
+var circulo_02 = new circulo(3, 5, 2);
+//circulo_02.raio=10 n permitido, pois os atributos são privados
+circulo_02.setRaio(-3);
+console.log(circulo_02.exibir());

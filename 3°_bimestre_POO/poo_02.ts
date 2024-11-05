@@ -77,14 +77,29 @@ dog.emitirSom(); // Saída: Latido
 //exemplo classe
 
 class circulo { //classe
-    raio: number; //atributo
-    x: number; //atributo
-    y: number; //atributo
+    private raio: number; //atributo
+    private x: number; //atributo
+    private y: number; //atributo
 
     constructor (raio: number, x: number, y: number) {
         this.raio=raio;
         this.x=x;
         this.y=y; //this faz a referencia ao atributo
+    }
+
+    getRaio (): number{
+        return this.raio
+    }
+    setRaio(r:number) :void {
+        if (r> 15) {
+            console.log("limite ultrapassado")
+        }
+        else if (r<0) {
+            console.log("Você já estudou geometria???")
+        }
+        else{
+            this.raio=r;
+        }
     }
     exibir() :string { //metodo e tipo de retorno
         return `Raio: ${this.raio}, X: ${this.x}, Y: ${this.y}`
@@ -99,5 +114,15 @@ class circulo { //classe
     }
 }
 
-let circulo_1= new circulo(2,0,0) //objeto
+/*let circulo_1= new circulo(2,0,0) //objeto
 console.log(circulo_1.exibir())
+circulo_1.aumentar(5)
+console.log(circulo_1.exibir())
+circulo_1.mover(2,4)
+console.log(circulo_1.exibir())*/
+
+let circulo_02=new circulo( 3,5,2)
+//circulo_02.raio=10 n permitido, pois os atributos são privados
+circulo_02.setRaio(-3)
+
+console.log(circulo_02.exibir())
