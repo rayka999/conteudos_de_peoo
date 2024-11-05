@@ -89,6 +89,14 @@ class circulo { //classe
     exibir() :string { //metodo e tipo de retorno
         return `Raio: ${this.raio}, X: ${this.x}, Y: ${this.y}`
     }
+    mover (x: number, y: number) : void {
+        this.x +=x;
+        this.y +=y //this.y = this.y + y
+        //void quer dizer que não retorna nenhum tipo específico
+    }
+    aumentar (r: number) :void {
+        this.raio += r
+    }
 }
 
 let circulo_1= new circulo(2,0,0) //objeto
