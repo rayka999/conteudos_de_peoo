@@ -19,8 +19,11 @@ animal_01.emitirSom();
 animal_01.mover(10)
 
 class Gato extends Animal { //define cachorro como subclasse de Animal
-    constructor(nome: string) {
+    private raca: string //atributo adicionado
+    
+    constructor(nome: string, raca: string) {
         super(nome); //imita o construtor das propriedades da classe Animal
+        this.raca=raca
     }
 
     emitirSom(): void { // exemplo de polimorfismo
@@ -31,7 +34,7 @@ class Gato extends Animal { //define cachorro como subclasse de Animal
     }
 }
 
-let cat = new Gato("felix");
+let cat = new Gato("felix", " Persian");
 cat.emitirSom(); 
 cat.mover(10);
 cat.ronronar()

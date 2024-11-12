@@ -30,8 +30,10 @@ animal_01.emitirSom();
 animal_01.mover(10);
 var Gato = /** @class */ (function (_super) {
     __extends(Gato, _super);
-    function Gato(nome) {
-        return _super.call(this, nome) || this; //imita o construtor das propriedades da classe Animal
+    function Gato(nome, raca) {
+        var _this = _super.call(this, nome) || this; //imita o construtor das propriedades da classe Animal
+        _this.raca = raca;
+        return _this;
     }
     Gato.prototype.emitirSom = function () {
         console.log("miau");
@@ -41,7 +43,7 @@ var Gato = /** @class */ (function (_super) {
     };
     return Gato;
 }(Animal));
-var cat = new Gato("felix");
+var cat = new Gato("felix", " Persian");
 cat.emitirSom();
 cat.mover(10);
 cat.ronronar();
