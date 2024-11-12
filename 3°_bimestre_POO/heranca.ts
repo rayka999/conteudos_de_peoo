@@ -34,10 +34,28 @@ class Gato extends Animal { //define cachorro como subclasse de Animal
     }
 }
 
+class Cachorro extends Animal {
+    
+    constructor(nome: string) {
+        super(nome); //imita o construtor das propriedades da classe Animal
+    }
+
+    emitirSom(): void { // exemplo de polimorfismo
+        console.log("au au");
+    }
+}
+
 let cat = new Gato("felix", " Persian");
 cat.emitirSom(); 
 cat.mover(10);
 cat.ronronar()
+
+let animais: Animal []= [new Animal("Onça"),
+                         new Cachorro("bolt"),
+                         new Gato("Garfield", "Americano")] //array de animais
+animais.forEach(bicho => {
+    bicho.emitirSom()
+});
 
 /*Polimorfismo:o mesmo método pode se comportar
  de maneiras diferentes dependendo do objeto que o 

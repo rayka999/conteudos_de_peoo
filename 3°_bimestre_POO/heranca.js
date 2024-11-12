@@ -43,10 +43,26 @@ var Gato = /** @class */ (function (_super) {
     };
     return Gato;
 }(Animal));
+var Cachorro = /** @class */ (function (_super) {
+    __extends(Cachorro, _super);
+    function Cachorro(nome) {
+        return _super.call(this, nome) || this; //imita o construtor das propriedades da classe Animal
+    }
+    Cachorro.prototype.emitirSom = function () {
+        console.log("au au");
+    };
+    return Cachorro;
+}(Animal));
 var cat = new Gato("felix", " Persian");
 cat.emitirSom();
 cat.mover(10);
 cat.ronronar();
+var animais = [new Animal("Onça"),
+    new Cachorro("bolt"),
+    new Gato("Garfield", "Americano")]; //array de animais
+animais.forEach(function (bicho) {
+    bicho.emitirSom();
+});
 /*Polimorfismo:o mesmo método pode se comportar
  de maneiras diferentes dependendo do objeto que o
  chama. No exemplo acima da seção anterior, o método
