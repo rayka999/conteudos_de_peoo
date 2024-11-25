@@ -5,10 +5,13 @@ class Produto{
         this.nome=nome
         this.preco=preco
     }
-    getPreco():void{
-        console.log(`${this.preco.toFixed(2)}`)
+    get Nome():string{
+        return this.nome
     }
-    setNovoPreco(valor:number):void{
+    get Preco():number{
+        return this.preco
+    }
+    set Preco(valor:number){
         if (valor>0){
             this.preco=valor
         }  else{
@@ -18,5 +21,6 @@ class Produto{
 }
 
 let p1=new Produto("maçã",2.50)
-p1.getPreco()
-p1.setNovoPreco(-9)
+console.log(p1.Preco)
+console.log(p1.Nome)
+p1.Preco=-9

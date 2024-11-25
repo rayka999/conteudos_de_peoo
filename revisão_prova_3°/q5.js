@@ -3,19 +3,31 @@ var Produto = /** @class */ (function () {
         this.nome = nome;
         this.preco = preco;
     }
-    Produto.prototype.getPreco = function () {
-        console.log("".concat(this.preco.toFixed(2)));
-    };
-    Produto.prototype.setNovoPreco = function (valor) {
-        if (valor > 0) {
-            this.preco = valor;
-        }
-        else {
-            console.log("colega, o que você está fazendo?");
-        }
-    };
+    Object.defineProperty(Produto.prototype, "Nome", {
+        get: function () {
+            return this.nome;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Produto.prototype, "Preco", {
+        get: function () {
+            return this.preco;
+        },
+        set: function (valor) {
+            if (valor > 0) {
+                this.preco = valor;
+            }
+            else {
+                console.log("colega, o que você está fazendo?");
+            }
+        },
+        enumerable: false,
+        configurable: true
+    });
     return Produto;
 }());
 var p1 = new Produto("maçã", 2.50);
-p1.getPreco();
-p1.setNovoPreco(-9);
+console.log(p1.Preco);
+console.log(p1.Nome);
+p1.Preco = -9;
