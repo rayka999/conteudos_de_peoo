@@ -18,5 +18,5 @@ empresa.listarFunconarios();
 f1.aplicarAumento(10);
 f2.aplicarAumento(15);
 g2.aplicarAumento(10);
-g1.Bonus = 500;
+g1.Bonus = 400;
 empresa.listarFunconarios();
