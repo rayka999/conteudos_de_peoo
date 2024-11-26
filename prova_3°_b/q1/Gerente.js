@@ -44,7 +44,8 @@ var Gerente = /** @class */ (function (_super) {
         configurable: true
     });
     Gerente.prototype.descricao = function () {
-        return "Nome:".concat(this.nome, ", Cargo: ").concat(this.cargo, ", Sal\u00E1rio: R$ ").concat((this.salario + this.Bonus).toFixed(2));
+        var salario_total = this.salario + this.bonus;
+        return "Nome:".concat(this.nome, ", Cargo: ").concat(this.cargo, ", Sal\u00E1rio: R$ ").concat(salario_total);
     };
     return Gerente;
 }(Funcionario_1.Funcionario));
