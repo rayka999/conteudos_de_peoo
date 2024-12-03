@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Biblioteca = void 0;
-class Biblioteca {
+export class Biblioteca {
     constructor() {
         this.itensDisponiveis = [];
         this.usuarios = [];
@@ -18,4 +15,3 @@ class Biblioteca {
         console.log(`Item ${item.exibirInformacoes()} emprestado para ${usuario.nome}`);
     }
 }
-exports.Biblioteca = Biblioteca;

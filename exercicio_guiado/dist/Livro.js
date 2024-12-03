@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Livro = void 0;
-const ItemBiblioteca_1 = require("./ItemBiblioteca");
-class Livro extends ItemBiblioteca_1.ItemBiblioteca {
+import { ItemBiblioteca } from './ItemBiblioteca.js';
+export class Livro extends ItemBiblioteca {
     constructor(titulo, anoPublicacao, autor, numeroPaginas) {
         super(titulo, anoPublicacao);
         this.autor = autor;
@@ -12,4 +9,3 @@ class Livro extends ItemBiblioteca_1.ItemBiblioteca {
         return `Livro: ${this.titulo}, Autor: ${this.autor}, Ano: ${this.anoPublicacao}, Páginas: ${this.numeroPaginas}`;
     }
 }
-exports.Livro = Livro;
