@@ -1,5 +1,6 @@
-import { Aluno } from "./Aluno";
-import { Disciplina } from "./Disciplina";
+import { Aluno } from "./Aluno.js";
+import { Disciplina } from "./Disciplina.js";
+import { Nota } from "./Nota.js";
 
 export class Turma {
     private _nome: string;

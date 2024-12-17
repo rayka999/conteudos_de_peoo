@@ -11,4 +11,7 @@ export class Disciplina{
 
     }
     
+    get nome():string{
+        return this._nome
+    }
 }
