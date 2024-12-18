@@ -27,7 +27,7 @@ export class Turma {
         }
     }
 
-    // Matricular aluno na disciplina
+    // Matricular aluno na disciplina.
     matricularAlunoNaDisciplina(aluno: Aluno, disciplina: Disciplina): void {
         if (this._alunos.includes(aluno)) {
             aluno.adicionarNota(new Nota(0, disciplina, aluno, "Avaliação Inicial"));  // Exemplo de nota inicial

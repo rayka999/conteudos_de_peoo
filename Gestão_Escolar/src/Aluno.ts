@@ -10,7 +10,7 @@ export class Aluno {
     protected _turma: Turma;
     private _senha: string;
     protected _notas: Nota[] = [];
-    private _frequencia: number[] = [];  // Para registrar a frequência, poderia ser um array de porcentagem ou booleano
+    private _frequencia: number[] = [];  // Para registrar a frequência, poderia ser um array de porcentagem ou booleano.
 
     constructor(nome: string, dataNascimento: string, endereco: string, email: string, anoDeMatricula: number, turma: Turma, senha_1: string, senha_2: string) {
         this._nome = nome;

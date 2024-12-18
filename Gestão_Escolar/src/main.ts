@@ -45,7 +45,7 @@ professor1.registrarFrequencia(aluno2, 90);
 professor2.registrarFrequencia(aluno1, 85);
 professor2.registrarFrequencia(aluno2, 88);
 
-// Emitindo boletins
+// Emitindo boletins.
 aluno1.emitirBoletim();
 aluno2.emitirBoletim();
 

@@ -1,5 +1,6 @@
 import { Professor } from "./Professor";
 export class Disciplina{
+    //propriedades
     private _nome:string;
     private _cargaHoraria:number;
     private _professorResponsavel:Professor;
@@ -11,7 +12,7 @@ export class Disciplina{
 
     }
     
-    get nome():string{
+    get nome ():string{
         return this._nome
     }
 }

@@ -18,7 +18,7 @@ export class Turma {
             console.log(`O aluno ${aluno.nome} já está matriculado nesta turma.`);
         }
     }
-    // Matricular aluno na disciplina
+    // Matricular aluno na disciplina.
     matricularAlunoNaDisciplina(aluno, disciplina) {
         if (this._alunos.includes(aluno)) {
             aluno.adicionarNota(new Nota(0, disciplina, aluno, "Avaliação Inicial")); // Exemplo de nota inicial

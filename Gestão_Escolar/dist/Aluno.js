@@ -1,7 +1,7 @@
 export class Aluno {
     constructor(nome, dataNascimento, endereco, email, anoDeMatricula, turma, senha_1, senha_2) {
         this._notas = [];
-        this._frequencia = []; // Para registrar a frequência, poderia ser um array de porcentagem ou booleano
+        this._frequencia = []; // Para registrar a frequência, poderia ser um array de porcentagem ou booleano.
         this._nome = nome;
         this._data_nascimento = dataNascimento;
         this._endereco = endereco;

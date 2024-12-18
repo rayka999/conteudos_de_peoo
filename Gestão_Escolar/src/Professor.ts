@@ -15,7 +15,7 @@ export class Professor {
         this._senha = senha;
     }
 
-    // Registrar nota do aluno
+    // Registrar nota do aluno.
     registrarNota(aluno: Aluno, disciplina: Disciplina, tipoAvaliacao: string, valor: number): void {
         let nota = new Nota(valor, disciplina, aluno, tipoAvaliacao);
         aluno.adicionarNota(nota);
