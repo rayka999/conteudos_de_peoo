@@ -2,6 +2,7 @@ import { Disciplina } from "./Disciplina.js";
 import { Aluno } from "./Aluno.js";
 
 export class Nota {
+    //propriedades
     private _valorNota: number;
     private _disciplina: Disciplina;
     private _aluno: Aluno;

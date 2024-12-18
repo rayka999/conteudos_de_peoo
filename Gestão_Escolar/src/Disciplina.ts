@@ -1,5 +1,6 @@
 import { Professor } from "./Professor";
 export class Disciplina{
+    //propriedades
     private _nome:string;
     private _cargaHoraria:number;
     private _professorResponsavel:Professor;
