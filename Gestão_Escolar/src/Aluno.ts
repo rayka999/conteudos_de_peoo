@@ -2,6 +2,7 @@ import { Turma } from "./Turma";
 import { Nota } from "./Nota";
 
 export class Aluno {
+    //propriedades
     private _nome: string;
     private _data_nascimento: string;
     private _endereco: string;
@@ -9,8 +10,13 @@ export class Aluno {
     private _ano_de_matricula: number;
     protected _turma: Turma;
     private _senha: string;
+<<<<<<< HEAD
     protected _notas: Nota[] = [];
     private _frequencia: number[] = [];  // Para registrar a frequência, poderia ser um array de porcentagem ou booleano.
+=======
+    protected _notas: Nota[] = []; //Para registrar as notas
+    private _frequencia: number[] = [];  // Para registrar a frequência, poderia ser um array de porcentagem ou booleano
+>>>>>>> 2370c334996004a3d2b953cdcdfb2e88616185c7
 
     constructor(nome: string, dataNascimento: string, endereco: string, email: string, anoDeMatricula: number, turma: Turma, senha_1: string, senha_2: string) {
         this._nome = nome;
