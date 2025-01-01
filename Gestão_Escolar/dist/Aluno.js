@@ -1,19 +1,14 @@
 export class Aluno {
-    constructor(nome, dataNascimento, endereco, email, anoDeMatricula, turma, senha_1, senha_2) {
+    constructor(nome, dataNascimento, endereco, email, turma, usuario, senha) {
         this._notas = [];
         this._frequencia = []; // Para registrar a frequência, poderia ser um array de porcentagem ou booleano.
         this._nome = nome;
         this._data_nascimento = dataNascimento;
         this._endereco = endereco;
         this._email = email;
-        this._ano_de_matricula = anoDeMatricula;
         this._turma = turma;
-        if (senha_1 == senha_2) {
-            this._senha = senha_1;
-        }
-        else {
-            console.log("Erro: Senhas diferentes");
-        }
+        this._Usuario = usuario;
+        this._senha = senha;
     }
     // Método para adicionar notas ao aluno
     adicionarNota(nota) {
@@ -26,11 +21,10 @@ export class Aluno {
     // Método para emitir o boletim do aluno
     emitirBoletim() {
         let somaNotas = 0;
-        let qtdNotas = this._notas.length;
         this._notas.forEach(nota => {
             somaNotas += nota.valorNota;
         });
-        let media = somaNotas / qtdNotas;
+        let media = somaNotas / 4;
         console.log(`Boletim do Aluno: ${this._nome}`);
         console.log(`Média: ${media}`);
         console.log(`Frequência: ${this.calcularFrequencia()}`);

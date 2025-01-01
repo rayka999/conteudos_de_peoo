@@ -1,13 +1,12 @@
 import { Professor } from "./Professor";
 export class Disciplina{
-    //propriedades
     private _nome:string;
-    private _cargaHoraria:number;
+    private _quantidade_aulas:number;
     private _professorResponsavel:Professor;
 
     constructor(nome:string, carga:number, professor:Professor){
         this._nome= nome;
-        this._cargaHoraria= carga;
+        this._quantidade_aulas= carga;
         this._professorResponsavel= professor;
 
     }
