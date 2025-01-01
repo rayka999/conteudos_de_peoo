@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEIF-Sistema escolar do instituto federal</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Logo -->
+    <img src="logo.jpg" alt=" Logo ">
+
+    <!-- Título -->
+    <h1>Fazer login</h1>
+
+    <!-- Formulário -->
+    <form id="loginForm">
+        <label for="opcoes">Entrar como:</label>
+        <select id="opcoes" name="opcoes" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="professor">Professor(a)</option>
+            <option value="aluno">Aluno(a)</option>
+        </select>
+
+        <label for="login">Login:</label>
+        <input type="text" id="login" name="login" placeholder="Digite seu login..." required>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha..." required>
+
+        <button type="button" onclick="Login()">ENTRAR</button>
+
+        
+        <div class="link-container">
+            <label>Não tem conta? Clique no botão abaixo:</label>
+            <a href="criar-conta.html">Criar conta de estudante</a>
+        </div>
+    </form>
+
+    <script>
+        function Login() {
+            // Captura os valores do formulário
+            const opcao = document.getElementById('opcoes').value;
+            const login = document.getElementById('login').value;
+            const senha = document.getElementById('senha').value;
+
+            // Valida os campos
+            if (!opcao || !login || !senha) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+
+            // Redireciona para a página correspondente
+            if (opcao === 'aluno') {
+                window.location.href = 'pagina-aluno.html';
+            } else if (opcao === 'professor') {
+                window.location.href = 'pagina-professor.html';
+            } else {
+                alert('Opção inválida!');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conta do(a) Aluno(a)</title>
+    <link rel="stylesheet" href="pagina_aluno.css">
+</head>
+<body>
+
+<div id="menuLateral" class="menu-lateral">
+        <div class="foto-icone">
+            <img src="https://via.placeholder.com/80" alt="Ícone do Site">
+        </div>
+        <div class="logo-seif">
+            SEIF
+        </div>
+        <a href="#" onclick="exibirBoletim()">Boletim</a>
+        <a href="#" onclick="exibirGradeCurricular()">Grade Curricular</a>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </button>
+
+    <div class="cabecalho">
+        <div id="nomeUsuario" class="nome-usuario"> </div>
+        <div class="imagem-usuario">
+            <img src="https://th.bing.com/th/id/OIP.1KIF8Tv6rMV2AdOR1Bv6eAHaHa?rs=1&pid=ImgDetMain" alt="Imagem da Conta">
+        </div>
+    </div>
+
+    <div class="conteudo">
+        <h1>Bem-vindo(a) à Página do(a) Estudante</h1>
+        <p>Esta página permite que o(a) estudante acesse seus dados de forma fácil e rápida.</p>
+        <p>Para acessar seu boletim e/ou grade curricular,clique no ícone menu na parte superior esquerda da página.</p>
+        <div id="boletim_grade"></div>
+    </div>
+
+    <div class="imagem-rodape">
+        <img src="https://th.bing.com/th/id/OIP.CZIlTP8Yo_M7ylfNLOtDYAHaHa?w=1200&h=1200&rs=1&pid=ImgDetMain" alt="Imagem no Rodapé">
+    </div>
+
+    <div class="rodape">
+        <div class="nome-seif">SEIF</div>
+        <div class="imagem-rodape">
+            <img src="https://th.bing.com/th/id/OIP.CZIlTP8Yo_M7ylfNLOtDYAHaHa?w=1200&h=1200&rs=1&pid=ImgDetMain" alt="Imagem no Rodapé">
+        </div>
+    </div>
+
+    <script>
+
+        // Recupera o nome do usuário do localStorage
+        const nomeUsuario = localStorage.getItem('nomeUsuario');
+        
+        // Se o nome do usuário estiver armazenado, exibe na página
+        if (nomeUsuario) {
+            document.getElementById('nomeUsuario').textContent = nomeUsuario;
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('menuLateral');
+            const currentLeft = menu.style.left;
+
+            if (currentLeft === '0px') {
+                menu.style.left = '-250px'; 
+            } else {
+                menu.style.left = '0';  
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

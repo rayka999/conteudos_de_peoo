@@ -1,0 +1,90 @@
+body {
+    background-image: url('degrade.jpg'); /* Caminho da imagem */
+    background-size: cover; /* Faz a imagem preencher a tela */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    background-attachment: fixed; /* Mantém a imagem fixa quando rolar a página */
+    background-position: center; /* Centraliza a imagem */
+    margin: 0; /* Remove margens padrão do navegador */
+    height: 100vh; /* Garante que o corpo ocupe 100% da altura da tela */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    max-width: 200px; /* Logo ajustado */
+    margin-bottom: 20px; /* Espaço entre logo e formulário */
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 90%; /* Ajuste para telas menores */
+    max-width: 400px;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input, select {
+    width: 100%; /* Faz o select e o input ocuparem a mesma largura */
+    padding: 10px; /* Espaço interno */
+    margin-bottom: 15px; /* Espaço inferior */
+    border: 1px solid #ccc; /* Borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 14px; /* Tamanho do texto */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+    appearance: none; /* Remove estilo padrão do select */
+}
+
+select {
+    -webkit-appearance: none; /* Remove seta padrão no Chrome/Safari */
+    -moz-appearance: none; /* Remove seta padrão no Firefox */
+    background-color: white; /* Garante fundo consistente */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.link-container {
+    text-align: center; /* Centraliza o texto dentro da div */
+    margin-top: 10px; /* Espaçamento acima do link */
+}
+
+.link-container label {
+    display: block; /* Faz o label ocupar toda a largura */
+    margin-bottom: 5px; /* Espaçamento entre o label e o link */
+}
+
+.link-container a {
+    color: #007bff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.link-container a:hover {
+    text-decoration: underline;
+}
