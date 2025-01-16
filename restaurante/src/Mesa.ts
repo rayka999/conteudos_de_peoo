@@ -1,11 +1,11 @@
 import { Pedido } from "./Pedido";
 export class Mesa {
-    private numero:number
+    private nome:string
     private disponibilidade: boolean=true;
     private pedido:Pedido;
 
-    constructor(numero:number) {;
-        this.numero=numero;
+    constructor(nome:string) {;
+        this.nome=nome;
     }
 
     atualizarDisponibilidade(status: boolean): void {

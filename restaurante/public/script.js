@@ -1,4 +1,5 @@
 import { Prato } from "../dist/Prato.js"
+import {Mesa} from "../dist/Mesa.js"
 
 let item1 = new Prato('X-Braga', 13, 'Pão, Hambúrguer Smash, Cheddar e Molho da casa')
 let item2 = new Prato('Duplo Braga', 20, 'Pão, 2 Hambúrguer Smash, Cheddar e Molho da casa')
@@ -52,3 +53,27 @@ function gerar_Pratos() {
 
 // Chama a função para gerar os pratos na tabela
 gerar_Pratos();
+
+let mesa1= new Mesa("mesa1")
+let mesa2= new Mesa("mesa2")
+let mesa3= new Mesa("mesa3")
+let mesa4= new Mesa("mesa4")
+let mesa5= new Mesa("mesa5")
+let mesa6= new Mesa("mesa6")
+let mesa7= new Mesa("mesa7")
+let mesa8= new Mesa("mesa8")
+let mesa9= new Mesa("mesa9")
+let mesa10= new Mesa("mes10")
+
+let mesas_restaurante =[mesa1, mesa2, mesa3, mesa4, mesa5, mesa6, mesa7, mesa8, mesa9, mesa10]
+
+function gerar_mesa() {
+  let select=document.getElementById("mesa");
+  mesas_restaurante.forEach(mesa => {
+    let nova_opcao=new Option(mesa.nome,mesa.nome);
+    select.options[select.options.length] = nova_opcao;
+  });
+}
+
+// Chama a função para gerar as mesas no select
+gerar_mesa();
