@@ -1,7 +1,11 @@
 export class Prato {
-    constructor(nome, preco, quantidade = 1) {
+    constructor(nome, preco, descricao) {
         this.nome = nome;
         this.preco = preco;
-        this.quantidade = quantidade;
+        this.descricao = descricao;
+    }
+    adicionar_quantidade(n) {
+        this.quantidade = n;
+        return;
     }
 }

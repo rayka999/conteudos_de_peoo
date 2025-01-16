@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Livro_js_1 = require("./Livro.js");
+const Revista_js_1 = require("./Revista.js");
+const Usuario_js_1 = require("./Usuario.js");
+const Biblioteca_js_1 = require("./Biblioteca.js");
+const livro1 = new Livro_js_1.Livro("O Senhor dos Anéis", 1954, "J.R.R. Tolkien", 1216);
+const revista1 = new Revista_js_1.Revista("National Geographic", 2024, "NG Media", 150);
+const usuario1 = new Usuario_js_1.Usuario("Maria Silva", 1);
+const biblioteca = new Biblioteca_js_1.Biblioteca();
+biblioteca.adicionarItem(livro1);
+biblioteca.adicionarItem(revista1);
+biblioteca.registrarUsuario(usuario1);
+usuario1.emprestarItem(livro1);
