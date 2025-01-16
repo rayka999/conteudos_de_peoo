@@ -1,8 +1,8 @@
 import { Prato } from "../dist/Prato.js"
 import {Mesa} from "../dist/Mesa.js"
 
-let item1 = new Prato('X-Braga', 13, 'Pão, Hambúrguer Smash, Cheddar e Molho da casa')
-let item2 = new Prato('Duplo Braga', 20, 'Pão, 2 Hambúrguer Smash, Cheddar e Molho da casa')
+let item1 = new Prato('X-Braga', 13, 'Pão, Hambúrguer Smash, Cheddar e Molho da casa ' )
+let item2 = new Prato('Duplo Braga', 20, 'Pão, 2 Hambúrguer Smash, Cheddar e Molho da casa ')
 let item3 = new Prato('Clássico Bacurau', 15, 'Pão, Hambúrguer de Crane de Sol, Queijo de Coalho, Cebola Roxa e Molho da casa')
 let item4 = new Prato('Garcia Burguer', 16, 'Pão, Hambúrguer de Frango, Queijo sem lactose e Molho da casa')
 let item5 = new Prato('Felix Vegetariano', 17, 'Pão, Hambúrguer de Soja assado na brasa, Alface, Tomate, Cebola e Molho da casa')
