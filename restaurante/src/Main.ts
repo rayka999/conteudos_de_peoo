@@ -9,8 +9,8 @@ const prato1 = new Prato("Pizza Margherita", 30.00,'');  // 2 pizzas
 const prato2 = new Prato("Espaguete à Carbonara", 40.00,'');
 const prato3 = new Prato("Salada Caesar", 20.00,'');  // 3 saladas
 
-const cliente1 = new Cliente("João Silva");
-const cliente2 = new Cliente("Maria Oliveira");
+const cliente1 = new Cliente("João Silva",'');
+const cliente2 = new Cliente("Maria Oliveira",'');
 
 const garcom = new Garcom("Carlos");
 

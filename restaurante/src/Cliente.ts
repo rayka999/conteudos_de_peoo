@@ -1,8 +1,11 @@
 export class Cliente{
-    private nome:string
+    private _nome:string;
+    private _numero:string;
 
-    constructor(nome:string){
-        this.nome=nome
+    constructor(nome:string,numero:string){
+        this._nome=nome
+        this._numero=numero
     }
+
 
 }

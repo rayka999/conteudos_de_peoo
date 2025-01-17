@@ -1,5 +1,6 @@
 export class Cliente {
-    constructor(nome) {
-        this.nome = nome;
+    constructor(nome, numero) {
+        this._nome = nome;
+        this._numero = numero;
     }
 }

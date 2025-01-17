@@ -1,0 +1,30 @@
+body {
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom, #FFF9B1, rgb(238, 247, 194), #FFF9B1);
+}
+
+h1 {
+    font-family: 'Century Gothic', Courier, monospace;
+    color: #333;
+    font-size: 5rem;
+    text-align: center;
+}
+
+p {
+    font-family: 'Century Gothic', Courier, monospace;
+}
+
+.bolinha-btn {
+    background-color: #333;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.quantidade-input {
+    display: none;
+    margin-top: 5px;
+}

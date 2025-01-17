@@ -5,37 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pedidost</title>
-    <style>
-        body {
-            height: 100vh;
-            margin: 0;
-            background: linear-gradient(to bottom, #FFF9B1, rgb(238, 247, 194), #FFF9B1);
-        }
-        
-        h1 {
-            font-family: 'Century Gothic', Courier, monospace; /* Mudando a fonte do h1 */
-            color: #333;
-            font-size: 5rem;
-            text-align: center; /* Centralizando o título */
-        }
-
-        p {
-            font-family: 'Century Gothic', Courier, monospace;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Cardápio</h1>
     <br><br>
-    <table id="tabela_pratos">
-    </table>
+    <table id="tabela_pratos"></table>
     <br><br>
     <label for="">Selecione a mesa:</label>
     <select id="mesa">
         <option value="">Selecione a mesa...</option>
     </select>
     <br><br>
+    <label for="">Selecione o garçom:</label>
+    <select id="garcom">
+        <option value="">Selecione o garçom...</option>
+    </select>
+    <br><br>
     <div>Total: ...</div>
+    <br>
+    <h2>Formulário de cadastro do cliente</h2>
+    <br>
+    <label for="">Digite seu nome:</label>
+    <input type="text" id="nome_cliente">
+    <br><br>
+    <label for="">Digite seu número para contato:</label>
+    <input type="text" id="numero_cliente">
     <br><br>
     <input type="button" value="Finalizar" onclick="Salvar_pedido()">
     <script type="module" src="script.js"></script>
