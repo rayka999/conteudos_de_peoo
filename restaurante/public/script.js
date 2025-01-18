@@ -251,6 +251,7 @@ document.getElementById("numero_cliente").addEventListener("input", function(eve
 
 
 // Função para salvar o pedido
+// Função para salvar o pedido
 function Salvar_pedido() {
     let nome_cliente = document.getElementById("nome_cliente").value;
     let numero_cliente = document.getElementById("numero_cliente").value;
@@ -266,6 +267,12 @@ function Salvar_pedido() {
     if (!mesaSelecionada.disponibilidade) {
         alert("Esta mesa não está disponível.");
         return;  // Não permite que o pedido seja realizado se a mesa não estiver disponível
+    }
+
+    // Verificar se há pratos selecionados
+    if (pratosSelecionados.length === 0) {
+        alert("Você precisa selecionar pelo menos um prato para realizar o pedido.");
+        return;  // Não permite o pedido sem pratos selecionados
     }
 
     // Criar o pedido
@@ -305,6 +312,7 @@ function Salvar_pedido() {
     // Limpar o formulário para o próximo cliente
     limparFormulario();
 }
+
 
 
 // Chama a função para gerar a tabela de clientes ao carregar a página
