@@ -1,12 +1,12 @@
 import { Mesa } from "./Mesa";
 import { Pedido } from "./Pedido";
 export class Garcom{
-    private nome:string
-    private disponibilidade:boolean=true
-    private taxa:number=0.05
+    private _nome:string
+    private _disponibilidade:boolean=true
+    private _taxa:number=0.05
 
     constructor(nome:string){
-        this.nome=nome
+        this._nome=nome
     }
 
     registrarPedido(mesa: Mesa, pedido: Pedido): void {
@@ -16,7 +16,7 @@ export class Garcom{
 
     calcularConta(mesa: Mesa): number {
         let total = mesa.calcularConta();
-        let total_com_taxa=total*(1+this.taxa);
+        let total_com_taxa=total*(1+this._taxa);
         console.log(`Conta total para a mesa ${mesa.numero}: R$ ${total_com_taxa.toFixed(2)}`);
         return total_com_taxa;
     }
@@ -25,5 +25,17 @@ export class Garcom{
         mesa.atualizarDisponibilidade(status);
         let statusMesa = status ? 'disponível' : 'indisponível';
         console.log(`Mesa ${mesa.numero} está ${statusMesa}.`);
+    }
+
+    get nome():string{
+        return this._nome
+    }
+
+    get taxa():number{
+        return this._taxa
+    }
+
+    get disponibilidade():boolean{
+        return this._disponibilidade
     }
 }

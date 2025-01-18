@@ -230,6 +230,26 @@ function excluirCliente(index, mesa) {
     atualizarMesas();
 }
 
+document.getElementById("numero_cliente").addEventListener("input", function(event) {
+    let phoneNumber = event.target.value;
+
+    // Remove todos os caracteres não numéricos
+    phoneNumber = phoneNumber.replace(/\D/g, '');
+
+    // Aplica a máscara enquanto o cliente digita
+    if (phoneNumber.length <= 10) {
+        // Mascara para números de 10 dígitos: (XX) XXXX-XXXX
+        phoneNumber = phoneNumber.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
+    } else {
+        // Mascara para números de 11 dígitos: (XX) XXXXX-XXXX
+        phoneNumber = phoneNumber.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+    }
+
+    // Atualiza o valor do campo com a máscara em tempo real
+    event.target.value = phoneNumber;
+});
+
+
 // Função para salvar o pedido
 function Salvar_pedido() {
     let nome_cliente = document.getElementById("nome_cliente").value;

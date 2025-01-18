@@ -1,12 +1,12 @@
 import { Pedido } from "./Pedido";
 export class Mesa {
-    private nome:string
+    private _nome:string
     private _numero:number
     private _disponibilidade: boolean=true;
-    private pedido:Pedido;
+    private _pedido:Pedido;
 
     constructor(nome:string,numero:number) {;
-        this.nome=nome;
+        this._nome=nome;
         this._numero=numero
     }
 
@@ -15,13 +15,13 @@ export class Mesa {
     }
 
     realizarPedido(pedido: Pedido): void {
-        this.pedido = pedido;
+        this._pedido = pedido;
         this.atualizarDisponibilidade(false); // Mesa não está disponível após o pedido
     }
 
     calcularConta(): number {
-        if (this.pedido) {
-            return this.pedido.calcularTotal();
+        if (this._pedido) {
+            return this._pedido.calcularTotal();
         }
         return 0;
     }
@@ -31,5 +31,13 @@ export class Mesa {
     }
     get disponibilidade ():boolean{
         return this._disponibilidade
+    }
+
+    get nome():string{
+        return this._nome
+    }
+
+    get pedido():Pedido{
+        return this._pedido
     }
 }

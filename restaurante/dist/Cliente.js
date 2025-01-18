@@ -6,4 +6,7 @@ export class Cliente {
     get nome() {
         return this._nome;
     }
+    get numero() {
+        return this._numero;
+    }
 }

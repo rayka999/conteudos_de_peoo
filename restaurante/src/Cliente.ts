@@ -10,4 +10,7 @@ export class Cliente{
     get nome():string{
         return this._nome
     }
+    get numero():string{
+        return this._numero
+    }
 }

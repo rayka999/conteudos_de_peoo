@@ -2,19 +2,19 @@ export class Mesa {
     constructor(nome, numero) {
         this._disponibilidade = true;
         ;
-        this.nome = nome;
+        this._nome = nome;
         this._numero = numero;
     }
     atualizarDisponibilidade(status) {
         this._disponibilidade = status;
     }
     realizarPedido(pedido) {
-        this.pedido = pedido;
+        this._pedido = pedido;
         this.atualizarDisponibilidade(false); // Mesa não está disponível após o pedido
     }
     calcularConta() {
-        if (this.pedido) {
-            return this.pedido.calcularTotal();
+        if (this._pedido) {
+            return this._pedido.calcularTotal();
         }
         return 0;
     }
@@ -23,5 +23,11 @@ export class Mesa {
     }
     get disponibilidade() {
         return this._disponibilidade;
+    }
+    get nome() {
+        return this._nome;
+    }
+    get pedido() {
+        return this._pedido;
     }
 }

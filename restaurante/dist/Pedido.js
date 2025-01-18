@@ -1,12 +1,18 @@
 export class Pedido {
     constructor(cliente) {
-        this.cliente = cliente;
-        this.pratos = [];
+        this._cliente = cliente;
+        this._pratos = [];
     }
     adicionarPrato(prato) {
-        this.pratos.push(prato);
+        this._pratos.push(prato);
     }
     calcularTotal() {
-        return this.pratos.reduce((total, prato) => total + (prato.preco * prato.quantidade), 0);
+        return this._pratos.reduce((total, prato) => total + (prato.preco * prato.quantidade), 0);
+    }
+    get cliente() {
+        return this._cliente;
+    }
+    get pratos() {
+        return this._pratos;
     }
 }

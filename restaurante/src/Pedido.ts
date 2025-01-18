@@ -1,19 +1,27 @@
 import { Prato } from "./Prato";
 import { Cliente } from "./Cliente";
 export class Pedido {
-    cliente: Cliente;
-    pratos: Prato[];
+    private _cliente: Cliente;
+    private _pratos: Prato[];
 
     constructor(cliente: Cliente) {
-        this.cliente = cliente;
-        this.pratos = [];
+        this._cliente = cliente;
+        this._pratos = [];
     }
 
     adicionarPrato(prato: Prato): void {
-        this.pratos.push(prato);
+        this._pratos.push(prato);
     }
 
     calcularTotal(): number {
-        return this.pratos.reduce((total, prato) => total + (prato.preco*prato.quantidade), 0);
+        return this._pratos.reduce((total, prato) => total + (prato.preco*prato.quantidade), 0);
+    }
+
+    get cliente():Cliente{
+        return this._cliente
+    }
+
+    get pratos (): Prato[]{
+        return this._pratos
     }
 }
