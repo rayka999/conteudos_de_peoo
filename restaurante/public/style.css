@@ -116,21 +116,21 @@ button.excluir-btn:hover {
 
 /* Melhorias na aparência de input e botões */
 input[type="text"], input[type="number"] {
-    width: 100%;
-    padding: 10px;
+    width: 60%;               /* Diminui a largura dos inputs */
+    padding: 8px;             /* Reduz o padding */
     margin: 5px 0 20px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 0.9rem;         /* Diminui o tamanho da fonte */
 }
 
 select {
-    width: 100%;
-    padding: 10px;
+    width: 60%;               /* Diminui a largura dos selects */
+    padding: 8px;             /* Reduz o padding */
     margin: 5px 0 20px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 0.9rem;         /* Diminui o tamanho da fonte */
 }
 
 /* Botão de finalizar */
