@@ -7,5 +7,7 @@ export class Cliente{
         this._numero=numero
     }
 
-
+    get nome():string{
+        return this._nome
+    }
 }

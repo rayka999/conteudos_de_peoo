@@ -75,6 +75,45 @@ button.select-btn.selected {
     background-color: #fff;   /* Cor de fundo para as células */
 }
 
+/* Estilo para a tabela de clientes e valores */
+#clientes_valor {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse; /* Colapsa as bordas da tabela */
+}
+
+#clientes_valor th, #clientes_valor td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ccc;  /* Borda leve para as células */
+}
+
+#clientes_valor th {
+    background-color: #f4f4f4;  /* Cor de fundo para o cabeçalho */
+    font-size: 1.2rem;         /* Tamanho maior para o cabeçalho */
+}
+
+#clientes_valor td {
+    background-color: #fff;   /* Cor de fundo para as células */
+    font-size: 1rem;           /* Tamanho da fonte padrão */
+}
+
+/* Botão de excluir na tabela de clientes */
+button.excluir-btn {
+    background-color: #f44336; /* Cor vermelha */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button.excluir-btn:hover {
+    background-color: #d32f2f; /* Cor ao passar o mouse */
+}
+
 /* Melhorias na aparência de input e botões */
 input[type="text"], input[type="number"] {
     width: 100%;
@@ -109,6 +148,8 @@ input[type="button"] {
 input[type="button"]:hover {
     background-color: #45a049;  /* Cor ao passar o mouse */
 }
+
+/* Estilo das mesas */
 #mesas-container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -136,4 +177,3 @@ input[type="button"]:hover {
 .indisponivel {
     background-color: red; /* Mesa indisponível ficará vermelha */
 }
-

@@ -3,4 +3,7 @@ export class Cliente {
         this._nome = nome;
         this._numero = numero;
     }
+    get nome() {
+        return this._nome;
+    }
 }

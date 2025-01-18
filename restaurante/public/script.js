@@ -182,6 +182,52 @@ gerar_garcom();
 let pedidosRealizados = [];
 
 // Função para salvar o pedido
+// Função para gerar a tabela de clientes e valores
+function gerarTabelaClientes() {
+    const tabelaClientes = document.getElementById("clientes_valor");
+    tabelaClientes.innerHTML = "";
+
+    // Cabeçalho da tabela
+    const cabecalho = document.createElement('tr');
+    cabecalho.innerHTML = `
+        <th>Nome do Cliente</th>
+        <th>Mesa</th>
+        <th>Total</th>
+        <th>Ação</th>
+    `;
+    tabelaClientes.appendChild(cabecalho);
+
+    // Adicionar os clientes na tabela
+    pedidosRealizados.forEach((pedidoRealizado, index) => {
+        const linha = document.createElement('tr');
+        linha.innerHTML = `
+            <td>${pedidoRealizado.cliente.nome}</td>
+            <td>${pedidoRealizado.mesa.nome}</td>
+            <td>R$ ${pedidoRealizado.total.toFixed(2)}</td>
+            <td><button class="excluir-btn" data-index="${index}">Excluir</button></td>
+        `;
+        tabelaClientes.appendChild(linha);
+
+        // Adiciona o evento para o botão de excluir
+        const botaoExcluir = linha.querySelector(".excluir-btn");
+        botaoExcluir.addEventListener('click', () => excluirCliente(index, pedidoRealizado.mesa));
+    });
+}
+
+// Função para excluir o cliente e atualizar a disponibilidade da mesa
+function excluirCliente(index, mesa) {
+    // Remover o pedido da lista
+    pedidosRealizados.splice(index, 1);
+
+    // Atualizar a disponibilidade da mesa
+    mesa.atualizarDisponibilidade(true);
+
+    // Atualizar a tabela de clientes e a visualização das mesas
+    gerarTabelaClientes();
+    atualizarMesas();
+}
+
+// Função para salvar o pedido
 function Salvar_pedido() {
     let nome_cliente = document.getElementById("nome_cliente").value;
     let numero_cliente = document.getElementById("numero_cliente").value;
@@ -218,12 +264,21 @@ function Salvar_pedido() {
         total: totalConta
     });
 
-    alert(`Pedido realizado com sucesso! Total + adicional do garçom: R$ ${totalConta.toFixed(2)}`)
+    alert(`Pedido realizado com sucesso! Total + adicional do garçom: R$ ${totalConta.toFixed(2)}`);
 
-    atualizarMesas()
+    // Atualizar a tabela e as mesas
+    gerarTabelaClientes();
+    atualizarMesas();
+
     // Limpar o formulário para o próximo cliente
     limparFormulario();
 }
+
+// Chama a função para gerar a tabela de clientes ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+    gerarTabelaClientes();
+});
+
 
 // Função para limpar o formulário
 function limparFormulario() {
