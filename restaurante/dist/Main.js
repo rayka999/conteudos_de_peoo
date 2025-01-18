@@ -10,8 +10,8 @@ const prato3 = new Prato("Salada Caesar", 20.00, ''); // 3 saladas
 const cliente1 = new Cliente("João Silva", '');
 const cliente2 = new Cliente("Maria Oliveira", '');
 const garcom = new Garcom("Carlos");
-const mesa1 = new Mesa("MESA 1");
-const mesa2 = new Mesa("MESA 2");
+const mesa1 = new Mesa("MESA 1", 1);
+const mesa2 = new Mesa("MESA 2", 2);
 // Registrar pedido para a mesa 1
 const pedidoJoao = new Pedido(cliente1);
 pedidoJoao.adicionarPrato(prato1); // 2 Pizza Margherita

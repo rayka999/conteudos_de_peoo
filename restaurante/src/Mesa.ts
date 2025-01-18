@@ -1,11 +1,13 @@
 import { Pedido } from "./Pedido";
 export class Mesa {
     private nome:string
+    private _numero:number
     private disponibilidade: boolean=true;
     private pedido:Pedido;
 
-    constructor(nome:string) {;
+    constructor(nome:string,numero:number) {;
         this.nome=nome;
+        this._numero=numero
     }
 
     atualizarDisponibilidade(status: boolean): void {
@@ -22,5 +24,9 @@ export class Mesa {
             return this.pedido.calcularTotal();
         }
         return 0;
+    }
+
+    get numero():number{
+        return this._numero
     }
 }

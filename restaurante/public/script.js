@@ -1,6 +1,8 @@
 import { Prato } from "../dist/Prato.js";
 import { Mesa } from "../dist/Mesa.js";
 import { Garcom } from "../dist/Garcom.js";
+import { Cliente } from "../dist/Cliente.js";
+import { Pedido } from "../dist/Pedido.js";
 
 // Definição dos pratos
 let item1 = new Prato('X-Braga', 13, 'Pão, Hambúrguer Smash, Cheddar e Molho da casa');
@@ -33,7 +35,7 @@ function gerar_Pratos() {
         <th>Nome</th>
         <th>Preço</th>
         <th>Descrição</th>
-        <th>Quant</th>
+        <th>Selecionar</th>
     `;
     tabela.appendChild(cabecalho);
 
@@ -45,40 +47,57 @@ function gerar_Pratos() {
             <td>R$ ${prato.preco.toFixed(2)}</td>
             <td>${prato.descricao}</td>
             <td>
-                <button class="bolinha-btn" id="btn-${prato.nome}"></button>
-                <div class="quantidade-input" id="input-${prato.nome}">
+                <button class="select-btn" id="btn-${prato.nome}">●</button>
+                <div class="quantity-input" id="input-${prato.nome}">
                     <input type="number" min="1" value="1" id="quantidade-${prato.nome}">
                 </div>
             </td>
         `;
         tabela.appendChild(linha);
 
-        // Adiciona o event listener para o botão de bolinha
-        const botaoBolinha = document.getElementById(`btn-${prato.nome}`);
-        botaoBolinha.addEventListener('click', () => mostrarInput(prato.nome));
+        // Adiciona o event listener para o botão de seleção
+        const botaoSelecionar = document.getElementById(`btn-${prato.nome}`);
+        botaoSelecionar.addEventListener('click', () => selecionarPrato(prato, botaoSelecionar));
     });
 }
 
-// Função para exibir o input de quantidade ao clicar no botão
-function mostrarInput(pratoNome) {
-    const inputDiv = document.getElementById(`input-${pratoNome}`);
-    inputDiv.style.display = inputDiv.style.display === 'none' ? 'block' : 'none';
+// Função para selecionar ou desmarcar o prato
+let pratosSelecionados = [];
+
+function selecionarPrato(prato, botao) {
+    const index = pratosSelecionados.indexOf(prato);
+    const inputQuantidade = document.getElementById(`input-${prato.nome}`);
+    const quantidadeInput = document.getElementById(`quantidade-${prato.nome}`).value;
+
+    if (index === -1) {
+        // Adiciona o prato ao pedido e muda o botão para azul
+        pratosSelecionados.push(prato);
+        botao.classList.add('selected');  // Aplica o estilo de botão selecionado
+        inputQuantidade.style.display = 'inline-block';  // Exibe o campo de quantidade
+        botao.innerHTML = '✓'; // Muda o ícone para "✓"
+    } else {
+        // Remove o prato do pedido e volta o botão para o estado inicial
+        pratosSelecionados.splice(index, 1);
+        botao.classList.remove('selected');
+        inputQuantidade.style.display = 'none';  // Esconde o campo de quantidade
+        botao.innerHTML = '●';  // Muda o ícone para "●" novamente
+    }
 }
 
 // Chama a função para gerar os pratos na tabela
 gerar_Pratos();
 
 // Definição das mesas
-let mesa1 = new Mesa("mesa1");
-let mesa2 = new Mesa("mesa2");
-let mesa3 = new Mesa("mesa3");
-let mesa4 = new Mesa("mesa4");
-let mesa5 = new Mesa("mesa5");
-let mesa6 = new Mesa("mesa6");
-let mesa7 = new Mesa("mesa7");
-let mesa8 = new Mesa("mesa8");
-let mesa9 = new Mesa("mesa9");
-let mesa10 = new Mesa("mesa10");
+let mesa1 = new Mesa("mesa 1",1);
+let mesa2 = new Mesa("mesa 2",2);
+let mesa3 = new Mesa("mesa 3",3);
+let mesa4 = new Mesa("mesa 4",4);
+let mesa5 = new Mesa("mesa 5",5);
+let mesa6 = new Mesa("mesa 6",6);
+let mesa7 = new Mesa("mesa 7",7);
+let mesa8 = new Mesa("mesa 8",8);
+let mesa9 = new Mesa("mesa 9",9);
+let mesa10 = new Mesa("mesa 10",10);
 
 let mesas_restaurante = [mesa1, mesa2, mesa3, mesa4, mesa5, mesa6, mesa7, mesa8, mesa9, mesa10];
 
@@ -86,7 +105,7 @@ let mesas_restaurante = [mesa1, mesa2, mesa3, mesa4, mesa5, mesa6, mesa7, mesa8,
 function gerar_mesa() {
     let select = document.getElementById("mesa");
     mesas_restaurante.forEach(mesa => {
-        let nova_opcao = new Option(mesa.nome, mesa.nome);
+        let nova_opcao = new Option(mesa.nome, mesa.numero);
         select.options[select.options.length] = nova_opcao;
     });
 }
@@ -113,3 +132,76 @@ function gerar_garcom() {
 
 // Chama a função para gerar os garçons no select
 gerar_garcom();
+
+// Lista para armazenar os pedidos
+let pedidosRealizados = [];
+
+// Função para salvar o pedido
+function Salvar_pedido() {
+    let nome_cliente = document.getElementById("nome_cliente").value;
+    let numero_cliente = document.getElementById("numero_cliente").value;
+    let cliente = new Cliente(nome_cliente, numero_cliente);
+    
+    let garcom_escolhido = document.getElementById("garcom").value;
+    let mesa_escolhida = document.getElementById('mesa').value;
+
+    // Encontrar a mesa selecionada
+    let mesaSelecionada = mesas_restaurante.find(mesa => mesa.numero == mesa_escolhida);
+
+    // Criar o pedido
+    let pedido = new Pedido(cliente);
+    
+    // Adicionar os pratos selecionados ao pedido
+    pratosSelecionados.forEach(prato => {
+        const quantidade = document.getElementById(`quantidade-${prato.nome}`).value;
+        for (let i = 0; i < quantidade; i++) {
+            pedido.adicionarPrato(prato);
+        }
+    });
+
+    // Registrar o pedido e calcular a conta
+    let garcomSelecionado = garcons.find(g => g.nome === garcom_escolhido);
+    garcomSelecionado.registrarPedido(mesaSelecionada, pedido);
+    let totalConta = garcomSelecionado.calcularConta(mesaSelecionada);
+
+    // Armazenar o pedido na lista de pedidos realizados
+    pedidosRealizados.push({
+        cliente: cliente,
+        mesa: mesaSelecionada,
+        garcom: garcomSelecionado,
+        pedido: pedido,
+        total: totalConta
+    });
+
+    alert(`Pedido realizado com sucesso! Total + adicional do garçom: R$ ${totalConta.toFixed(2)}`)
+
+    // Limpar o formulário para o próximo cliente
+    limparFormulario();
+}
+
+// Função para limpar o formulário
+function limparFormulario() {
+    // Limpar campos do formulário
+    document.getElementById("nome_cliente").value = '';
+    document.getElementById("numero_cliente").value = '';
+    document.getElementById("mesa").selectedIndex = 0;
+    document.getElementById("garcom").selectedIndex = 0;
+    
+    // Limpar pratos selecionados
+    pratosSelecionados = [];
+    const buttons = document.querySelectorAll('.select-btn');
+    buttons.forEach(button => {
+        button.innerHTML = '●';
+        button.classList.remove('selected');
+    });
+    const quantityInputs = document.querySelectorAll('.quantity-input');
+    quantityInputs.forEach(input => {
+        input.style.display = 'none';
+        input.querySelector('input').value = 1;
+    });
+}
+
+// Adicionando um event listener para o botão de finalizar
+document.getElementById("finalizar-btn").addEventListener("click", Salvar_pedido);
+
+console.log(pedidosRealizados)

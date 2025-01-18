@@ -1,8 +1,9 @@
 export class Mesa {
-    constructor(nome) {
+    constructor(nome, numero) {
         this.disponibilidade = true;
         ;
         this.nome = nome;
+        this._numero = numero;
     }
     atualizarDisponibilidade(status) {
         this.disponibilidade = status;
@@ -16,5 +17,8 @@ export class Mesa {
             return this.pedido.calcularTotal();
         }
         return 0;
+    }
+    get numero() {
+        return this._numero;
     }
 }
