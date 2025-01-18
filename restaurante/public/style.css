@@ -109,3 +109,31 @@ input[type="button"] {
 input[type="button"]:hover {
     background-color: #45a049;  /* Cor ao passar o mouse */
 }
+#mesas-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    margin-top: 20px;
+}
+
+.mesa {
+    width: 80px;      /* Aumenta a largura do quadrado */
+    height: 80px;     /* Aumenta a altura do quadrado */
+    margin: 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: white; /* Para garantir que o texto seja visível */
+    font-weight: bold; /* Para deixar o texto mais destacado */
+    font-size: 16px; /* Ajusta o tamanho da fonte */
+}
+
+.disponivel {
+    background-color: green; /* Mesa disponível ficará verde */
+}
+
+.indisponivel {
+    background-color: red; /* Mesa indisponível ficará vermelha */
+}
+

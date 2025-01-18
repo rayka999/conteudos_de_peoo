@@ -22,17 +22,23 @@
         <option value="">Selecione o garçom...</option>
     </select>
     <br><br>
-    <div id="total_conta">Total: ...</div>
-    <br>
     <h2>Formulário de cadastro do cliente</h2>
     <br>
-    <label for="">Digite seu nome:</label>
+    <label for="">Nome do Cliente:</label>
     <input type="text" id="nome_cliente">
     <br><br>
-    <label for="">Digite seu número para contato:</label>
+    <label for="">Número para contato:</label>
     <input type="text" id="numero_cliente">
     <br><br>
     <input type="button" value="Finalizar" id="finalizar-btn">
+
+    <br><br>
+    <h2>Mesas Disponíveis (verdes) e Indisponíveis (vermelhas)</h2>
+    <div id="mesas-container">
+    </div>
+    <br><br>
+    <h2>Tabela de clientes e total a pagar</h2>
+    <table id="clientes_valor"></table>
     <script type="module" src="script.js"></script>
 </body>
 </html>

@@ -101,17 +101,62 @@ let mesa10 = new Mesa("mesa 10",10);
 
 let mesas_restaurante = [mesa1, mesa2, mesa3, mesa4, mesa5, mesa6, mesa7, mesa8, mesa9, mesa10];
 
-// Função para gerar as opções de mesa no select
+// Função para gerar as opções de mesa no select e exibir quadrados de disponibilidade
+// Função para gerar as opções de mesa no select e exibir quadrados de disponibilidade
 function gerar_mesa() {
     let select = document.getElementById("mesa");
+    let container = document.getElementById("mesas-container");
+
     mesas_restaurante.forEach(mesa => {
+        // Adicionando a opção no select
         let nova_opcao = new Option(mesa.nome, mesa.numero);
         select.options[select.options.length] = nova_opcao;
+
+        // Criando o quadrado para representar a mesa
+        let divMesa = document.createElement('div');
+        divMesa.classList.add('mesa');
+        divMesa.id = `mesa${mesa.numero}`;
+
+        // Alterando a classe de cor do quadrado de acordo com a disponibilidade
+        if (mesa.disponibilidade) {
+            divMesa.classList.add('disponivel'); // Verde
+        } else {
+            divMesa.classList.add('indisponivel'); // Vermelho
+        }
+
+        // Adicionando o nome da mesa dentro do quadrado
+        divMesa.innerHTML = mesa.nome;  // Exibe o nome da mesa
+
+        // Adiciona o quadrado ao container
+        container.appendChild(divMesa);
     });
 }
 
+
+
 // Chama a função para gerar as mesas no select
 gerar_mesa();
+
+// Função para atualizar as cores dos quadrados de mesa conforme disponibilidade
+function atualizarMesas() {
+    mesas_restaurante.forEach(mesa => {
+        const mesaElement = document.getElementById(`mesa${mesa.numero}`);
+        if (mesa.disponibilidade) {
+            mesaElement.classList.add('disponivel');
+            mesaElement.classList.remove('indisponivel');
+        } else {
+            mesaElement.classList.add('indisponivel');
+            mesaElement.classList.remove('disponivel');
+        }
+    });
+}
+
+// Chama a função para atualizar as mesas ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+    atualizarMesas();
+});
+
+
 
 // Definição dos garçons
 let garcom_1 = new Garcom("Gabriela");
@@ -175,6 +220,7 @@ function Salvar_pedido() {
 
     alert(`Pedido realizado com sucesso! Total + adicional do garçom: R$ ${totalConta.toFixed(2)}`)
 
+    atualizarMesas()
     // Limpar o formulário para o próximo cliente
     limparFormulario();
 }
