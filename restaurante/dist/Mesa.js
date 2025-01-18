@@ -1,12 +1,12 @@
 export class Mesa {
     constructor(nome, numero) {
-        this.disponibilidade = true;
+        this._disponibilidade = true;
         ;
         this.nome = nome;
         this._numero = numero;
     }
     atualizarDisponibilidade(status) {
-        this.disponibilidade = status;
+        this._disponibilidade = status;
     }
     realizarPedido(pedido) {
         this.pedido = pedido;
@@ -20,5 +20,8 @@ export class Mesa {
     }
     get numero() {
         return this._numero;
+    }
+    get disponibilidade() {
+        return this._disponibilidade;
     }
 }

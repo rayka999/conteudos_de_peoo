@@ -102,13 +102,14 @@ let mesa10 = new Mesa("mesa 10",10);
 let mesas_restaurante = [mesa1, mesa2, mesa3, mesa4, mesa5, mesa6, mesa7, mesa8, mesa9, mesa10];
 
 // Função para gerar as opções de mesa no select e exibir quadrados de disponibilidade
-// Função para gerar as opções de mesa no select e exibir quadrados de disponibilidade
 function gerar_mesa() {
     let select = document.getElementById("mesa");
     let container = document.getElementById("mesas-container");
+    
+    container.innerHTML = '';
 
     mesas_restaurante.forEach(mesa => {
-        // Adicionando a opção no select
+
         let nova_opcao = new Option(mesa.nome, mesa.numero);
         select.options[select.options.length] = nova_opcao;
 
@@ -134,6 +135,7 @@ function gerar_mesa() {
 
 
 
+
 // Chama a função para gerar as mesas no select
 gerar_mesa();
 
@@ -150,6 +152,7 @@ function atualizarMesas() {
         }
     });
 }
+
 
 // Chama a função para atualizar as mesas ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
@@ -193,7 +196,7 @@ function gerarTabelaClientes() {
         <th>Nome do Cliente</th>
         <th>Mesa</th>
         <th>Total</th>
-        <th>Ação</th>
+        <th>Registrar pagamento</th>
     `;
     tabelaClientes.appendChild(cabecalho);
 
@@ -204,7 +207,7 @@ function gerarTabelaClientes() {
             <td>${pedidoRealizado.cliente.nome}</td>
             <td>${pedidoRealizado.mesa.nome}</td>
             <td>R$ ${pedidoRealizado.total.toFixed(2)}</td>
-            <td><button class="excluir-btn" data-index="${index}">Excluir</button></td>
+            <td><button class="excluir-btn" data-index="${index}">Pago</button></td>
         `;
         tabelaClientes.appendChild(linha);
 
@@ -239,6 +242,12 @@ function Salvar_pedido() {
     // Encontrar a mesa selecionada
     let mesaSelecionada = mesas_restaurante.find(mesa => mesa.numero == mesa_escolhida);
 
+    // Verificar se a mesa está disponível
+    if (!mesaSelecionada.disponibilidade) {
+        alert("Esta mesa não está disponível.");
+        return;  // Não permite que o pedido seja realizado se a mesa não estiver disponível
+    }
+
     // Criar o pedido
     let pedido = new Pedido(cliente);
     
@@ -264,15 +273,19 @@ function Salvar_pedido() {
         total: totalConta
     });
 
+    // Atualiza a disponibilidade da mesa para 'indisponível'
+    mesaSelecionada.atualizarDisponibilidade(false);
+
     alert(`Pedido realizado com sucesso! Total + adicional do garçom: R$ ${totalConta.toFixed(2)}`);
 
-    // Atualizar a tabela e as mesas
+    // Atualizar a tabela de clientes e as mesas
     gerarTabelaClientes();
     atualizarMesas();
 
     // Limpar o formulário para o próximo cliente
     limparFormulario();
 }
+
 
 // Chama a função para gerar a tabela de clientes ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {

@@ -2,7 +2,7 @@ import { Pedido } from "./Pedido";
 export class Mesa {
     private nome:string
     private _numero:number
-    private disponibilidade: boolean=true;
+    private _disponibilidade: boolean=true;
     private pedido:Pedido;
 
     constructor(nome:string,numero:number) {;
@@ -11,7 +11,7 @@ export class Mesa {
     }
 
     atualizarDisponibilidade(status: boolean): void {
-        this.disponibilidade = status;
+        this._disponibilidade = status;
     }
 
     realizarPedido(pedido: Pedido): void {
@@ -28,5 +28,8 @@ export class Mesa {
 
     get numero():number{
         return this._numero
+    }
+    get disponibilidade ():boolean{
+        return this._disponibilidade
     }
 }
